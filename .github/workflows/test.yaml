@@ -36,7 +36,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - uses: git-actions/set-user@v1
+      - run: |
+          git config --local user.email "test@example.com"
+          git config --local user.name "test"
 
       - run: git config --list
       
