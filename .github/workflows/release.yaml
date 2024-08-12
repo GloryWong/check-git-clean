@@ -50,8 +50,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - uses: git-actions/set-user@v1
-
       - name: Publish to NPM
         # The --no-git-checks flag is needed to bypass an issue with pnpm related to GitHub's detached HEAD state during releases.
         run: pnpm publish --access public --no-git-checks

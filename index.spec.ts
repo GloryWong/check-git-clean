@@ -55,7 +55,7 @@ describe('checkGitClean', () => {
       const filePath = path.join(repoDir, 'file.js')
       await fs.writeFile(filePath, 'console.log("initial");')
       await exec('git add file.js', { cwd: repoDir })
-      await exec('git commit -m "Initial commit"', { cwd: repoDir })
+      await exec('git -c user.name="test" -c user.email="test@example.com" commit -m "Initial commit"', { cwd: repoDir })
       await fs.writeFile(filePath, 'console.log("modified");')
 
       const result = await checkGitClean(repoDir)
@@ -68,7 +68,7 @@ describe('checkGitClean', () => {
       const filePath = path.join(repoDir, 'file.js')
       await fs.writeFile(filePath, 'console.log("initial");')
       await exec('git add file.js', { cwd: repoDir })
-      await exec('git commit -m "Initial commit"', { cwd: repoDir })
+      await exec('git -c user.name="test" -c user.email="test@example.com" commit -m "Initial commit"', { cwd: repoDir })
       await fs.writeFile(filePath, 'console.log("modified");')
       await exec('git add file.js', { cwd: repoDir })
 
@@ -82,7 +82,7 @@ describe('checkGitClean', () => {
       const filePath = path.join(repoDir, 'file.js')
       await fs.writeFile(filePath, 'console.log("initial");')
       await exec('git add file.js', { cwd: repoDir })
-      await exec('git commit -m "Initial commit"', { cwd: repoDir })
+      await exec('git -c user.name="test" -c user.email="test@example.com" commit -m "Initial commit"', { cwd: repoDir })
       // Create an untracked file
       await fs.writeFile(path.join(repoDir, 'untracked-file.js'), 'console.log("untracked");')
       // Modify the tracked file
