@@ -36,6 +36,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - uses: git-actions/set-user@v1
+      
       - name: Generate coverage
         run: pnpm coverage
 
